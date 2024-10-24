@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/imgs/icon512_maskable.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="manifest" href="manifest.json">
+    <title>PWA Harry Potter</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Personajes de Harry Potter</h1>
+        <div class="d-flex justify-content-end mb-3">
+            <button type="button" class="btn btn-success" id="addCharacterBtn" data-toggle="modal" data-target="#characterModal">Agregar Personaje</button>
+        </div>
+
+        <div id="characters" class="row"></div> 
+
+        <!-- Modal para agregar personaje -->
+        <div class="modal fade" id="characterModal" tabindex="-1" role="dialog" aria-labelledby="characterModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="characterModalLabel">Agregar Personaje</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="character-form" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="name">Nombre</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="house">Casa</label>
+                                <input type="text" class="form-control" id="house" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="wand">Varita</label>
+                                <input type="text" class="form-control" id="wand" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="birthDate">Fecha de Nacimiento</label>
+                                <input type="date" class="form-control" id="birthDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="img">Imagen</label>
+                                <input type="file" class="form-control-file" id="img" accept="image/*" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de confirmación de eliminación -->
+        <div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteConfirmModalLabel">Confirmar Eliminación</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estás seguro de que deseas eliminar este personaje?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger" id="confirm-delete-btn">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para actualizar personaje -->
+        <div class="modal fade" id="updateCharacterModal" tabindex="-1" role="dialog" aria-labelledby="updateCharacterModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="updateCharacterModalLabel">Actualizar Personaje</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="updateCharacterForm">
+                            <div class="form-group">
+                                <label for="updateCharacterName">Nombre</label>
+                                <input type="text" class="form-control" id="updateCharacterName">
+                            </div>
+                            <div class="form-group">
+                                <label for="updateCharacterHouse">Casa</label>
+                                <input type="text" class="form-control" id="updateCharacterHouse">
+                            </div>
+                            <div class="form-group">
+                                <label for="updateCharacterWand">Varita</label>
+                                <input type="text" class="form-control" id="updateCharacterWand">
+                            </div>
+                            <div class="form-group">
+                                <label for="updateCharacterBirthDate">Fecha de Nacimiento</label>
+                                <input type="date" class="form-control" id="updateCharacterBirthDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="updateCharacterImg">Imagen</label>
+                                <input type="file" class="form-control" id="updateCharacterImg">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
